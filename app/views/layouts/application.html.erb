@@ -12,7 +12,12 @@
   </head>
 
   <body>
-    <p class="alfred">hiiii nana ama</p>
-    <%= yield %>
+    <% if notice %>
+       <p class="notice"><%= notice %></p>
+       <% end %>
+       <% if alert %>
+       <p class="alert"><%= alert %></p>   
+       <% end %>
+       <%= yield %>
   </body>
 </html>
