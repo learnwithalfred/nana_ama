@@ -26,10 +26,8 @@ class AnnouncementsController < ApplicationController
     respond_to do |format|
       if @announcement.save
         format.html { redirect_to announcement_url(@announcement), notice: "Announcement was successfully created." }
-        format.json { render :show, status: :created, location: @announcement }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @announcement.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,10 +37,8 @@ class AnnouncementsController < ApplicationController
     respond_to do |format|
       if @announcement.update(announcement_params)
         format.html { redirect_to announcement_url(@announcement), notice: "Announcement was successfully updated." }
-        format.json { render :show, status: :ok, location: @announcement }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @announcement.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -53,7 +49,6 @@ class AnnouncementsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to announcements_url, notice: "Announcement was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
@@ -65,6 +60,6 @@ class AnnouncementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def announcement_params
-      params.require(:announcement).permit(:name, :title, :content)
+      params.require(:announcement).permit(:title, :content)
     end
 end
