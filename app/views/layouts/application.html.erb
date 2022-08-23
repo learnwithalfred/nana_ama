@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NanaAma</title>
+    <title>Nana Ama</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,6 +12,14 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <% else %>
+
+      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Sign up", new_user_registration_path %>
+    <% end %>
+
     <% if notice %>
        <p class="notice"><%= notice %></p>
        <% end %>

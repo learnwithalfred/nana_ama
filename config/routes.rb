@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-    devise_for :users, path: "auth",
-    path_names: { sign_in: "login", sign_out: "logout", password: "secret", confirmation: "verification" }
-  resources :users
+
   get 'homepage/index'
   resources :subjects
   resources :announcements
   resources :classrooms
 
   root 'homepage#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout", password: "secret", confirmation: "verification" }
+  resources :users
+  
 end
