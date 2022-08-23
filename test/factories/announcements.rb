@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :announcement do
-    name { "MyString" }
-    title { "MyString" }
+    title { Faker::Lorem.words(number: 5) }   
+    content { Faker::Lorem.paragraph(sentence_count: 2) }
   end
 end
