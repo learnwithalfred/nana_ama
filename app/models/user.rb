@@ -3,6 +3,9 @@ class User < ApplicationRecord
   MAX_EMAIL_LENGTH = 50
   PASSWORD_LENGTH = 6..50
   MAX_NAME_LENGTH = 35
+  
+  has_one :student
+
 
   validates :name, presence: true, length: { maximum: MAX_NAME_LENGTH }
   validates :gender, presence: true
