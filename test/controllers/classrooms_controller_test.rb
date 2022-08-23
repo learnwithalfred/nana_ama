@@ -2,7 +2,7 @@ require "test_helper"
 
 class ClassroomsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @classroom = classrooms(:one)
+    @classroom = Classroom.create(name:"test classroom 2", role: 5)
   end
 
   test "should get index" do
@@ -17,7 +17,7 @@ class ClassroomsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create classroom" do
     assert_difference('Classroom.count') do
-      post classrooms_url, params: { classroom: { name: @classroom.name, role: @classroom.role } }
+      post classrooms_url, params: { classroom: { name: "Classroom 2", role: 4 } }
     end
 
     assert_redirected_to classroom_url(Classroom.last)
@@ -45,4 +45,32 @@ class ClassroomsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to classrooms_url
   end
+
+  # def test_classroom_should_not_be_destroyed_if_it_has_students
+  #   @classroom.students.create(name: "test student", role: 1)
+  #   assert_difference('Classroom.count', 0) do
+  #     delete classroom_url(@classroom)
+  #   end
+
+  #   assert_redirected_to classrooms_url
+  # end
+
+  def test_classroom_must_have_name
+    assert_difference('Classroom.count', 0) do
+      post classrooms_url, params: { classroom: { name: "", role: 4 } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
+  def test_classroom_must_have_role
+    assert_difference('Classroom.count', 0) do
+      post classrooms_url, params: { classroom: { name: "Classroom 2", role: nil } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
+
+
 end
