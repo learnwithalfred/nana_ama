@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2022_08_23_122131) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.string "name"
+    t.string "name", limit: 100, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

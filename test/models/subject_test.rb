@@ -30,4 +30,12 @@ class SubjectTest < ActiveSupport::TestCase
     assert_not @subject.valid?
     assert_includes @subject.errors.full_messages, "Name is too short (minimum is 3 characters)"
   end
+
+  def test_subject_name_must_be_unique 
+    subject_2 = Subject.create(name:"subject 1")
+    subject_3 =  Subject.create(name:"subject 1")
+    assert_not subject_3.valid?
+    assert_includes subject_3.errors.full_messages, "Name has already been taken"
+  end
+
 end
