@@ -48,4 +48,23 @@ class AnnouncementsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to announcements_url
   end
+
+  def test_announcement_must_have_title
+    assert_difference('Announcement.count', 0) do
+      post announcements_url, params: { announcement: { title: "", content:"test content 3"} }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
+  def test_announcement_must_have_content
+    assert_difference('Announcement.count', 0) do
+      post announcements_url, params: { announcement: { title: "test title 3", content:""} }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
+
+
 end
