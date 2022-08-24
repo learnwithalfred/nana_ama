@@ -7,35 +7,22 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
     @user2 = User.create(name:"Test student", email:"test@tudent.stk", password:"welcome", password_confirmation:"welcome", role:"learner", gender: "male", address:"ksi")
     @user3 = User.create(name:"Test student 3", email:"test3@tudent.stk", password:"welcome", password_confirmation:"welcome", role:"learner", gender: "male", address:"ksi")
     @student = Student.create(user_id:@user2.id, classroom_id:@classroom.id, dob:"1990-08-23", contact:"MyString", father:"MyString", mother:"MyString", about:"MyText")
-
+    sign_in(@user)
   end
 
-  test "should redirect to auth page if not authenticated" do
-    get students_url
-    get new_student_url
-    
-    # assert_redirected_to new_user_session_path
-       assert_response :success
-  end
-
-
-  test "shold get index" do
-    
+  test "should get index" do
     get students_path
-    # assert_redirected_to new_user_session_path
-    # post new_user_session_path, params: {  email: @user.email, password: @user.password }
     assert_response :success
 
   end
 
   test "should get new" do
     get new_student_url
-    # assert_redirected_to new_user_session_path
-    # post new_user_session_path, params: {  email: @user.email, password: @user.password }
     assert_response :success
   end
 
   test "should create student" do
+
     assert_difference('Student.count') do
       post students_url, params: {student: {about: "i like to learn", classroom_id: @classroom.id, contact: "hello", dob: @student.dob, father: @student.father, mother: @student.mother, user_id: @user3.id} }
     end
@@ -50,6 +37,7 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get edit" do
     get edit_student_url(@student)
+
     assert_response :success
   end
 
