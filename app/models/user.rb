@@ -6,6 +6,8 @@ class User < ApplicationRecord
   
   has_one :student
   has_many :courses
+  has_many :comments, dependent: :destroy
+
 
 
   validates :name, presence: true, length: { maximum: MAX_NAME_LENGTH }

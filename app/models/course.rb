@@ -5,6 +5,7 @@ class Course < ApplicationRecord
   belongs_to :user
   belongs_to :classroom
   belongs_to :subject
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true, length: {minimum:MIN_LENGTH, maximum:MAX_LENGTH}
   validates :content, presence: true

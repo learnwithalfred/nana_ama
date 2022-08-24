@@ -46,3 +46,14 @@
 #     }])
 
 # end
+
+
+3.times do
+  Comment.create!(
+    [{
+      content: Faker::Lorem.paragraph(sentence_count: 4),
+      user_id: User.first.id,
+      course_id: Course.first.id
+    }])
+
+end

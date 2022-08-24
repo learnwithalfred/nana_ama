@@ -4,10 +4,14 @@ class CoursesController < ApplicationController
   # GET /courses or /courses.json
   def index
     @courses = Course.all
+
   end
 
   # GET /courses/1 or /courses/1.json
   def show
+    @comments = @course.comments.includes(:user)
+
+    @comment = @course.comments.build
   end
 
   # GET /courses/new
