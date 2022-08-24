@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  CONTENT_LENGTH = 3..511
+  CONTENT_LENGTH = 1..500
 
 
   belongs_to :course

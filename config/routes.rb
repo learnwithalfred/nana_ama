@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :comments
+  resources :comments, only: [:create, :new]
   resources :courses
   resources :students
   get 'homepage/index'
