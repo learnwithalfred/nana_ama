@@ -2,6 +2,8 @@ require "test_helper"
 
 class ClassroomsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = User.create(name:"John Doe", email:"admin@doe.com", password:"welcome", password_confirmation:"welcome", role:"admin", gender: "male", address:"ksi")
+    sign_in(@user)
     @classroom = Classroom.create(name:"test classroom 2", role: 5)
   end
 

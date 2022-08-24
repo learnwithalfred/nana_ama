@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @course.title %>
+</p>
+
+
+<p>
+  <strong>Class name:</strong>
+  <%= @course.classroom.name %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @course.subject.name %>
+</p>
+
+<p>
+  <strong>Course date:</strong>
+  <%= @course.course_date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @course.status %>
+</p>
+
+
+<p>Content:<strong><%= @course.content %></strong></p>
+
+<h2>comments</h2>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li>
+        <%= comment.content %>
+       <p><%= comment.user.name %></p> 
+       <p><%=comment.created_at %> </p>
+      </li>
+    <% end %>
+  </ul>
+
+
+
+ <%= render "comments/form", comment: @comment%>
+
+
+
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
