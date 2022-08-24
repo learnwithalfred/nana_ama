@@ -2,12 +2,12 @@
 
 FactoryBot.define do
   factory :user do
-    name { Faker::Name.name }
+    name { Faker::Name.unique.name }
     gender {"male" }
     address {"Kumasi Ghana" }
     email { Faker::Internet.email }
     password { "password" }
     password_confirmation { "password" }
-    role { "user" }
+    role { "learner" }
   end
 end

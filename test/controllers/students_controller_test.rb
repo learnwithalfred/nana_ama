@@ -2,11 +2,11 @@ require "test_helper"
 
 class StudentsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @classroom = Classroom.create(name: "classroom three", role: 12)
-    @user = User.create(name:"John Doe", email:"jj@doe.com", password:"welcome", password_confirmation:"welcome", role:"admin", gender: "male", address:"ksi")
-    @user2 = User.create(name:"Test student", email:"test@tudent.stk", password:"welcome", password_confirmation:"welcome", role:"learner", gender: "male", address:"ksi")
-    @user3 = User.create(name:"Test student 3", email:"test3@tudent.stk", password:"welcome", password_confirmation:"welcome", role:"learner", gender: "male", address:"ksi")
-    @student = Student.create(user_id:@user2.id, classroom_id:@classroom.id, dob:"1990-08-23", contact:"MyString", father:"MyString", mother:"MyString", about:"MyText")
+    @classroom = create(:classroom)
+    @user = User.create(name:"John Doe", email:"admin@doe.com", password:"welcome", password_confirmation:"welcome", role:"admin", gender: "male", address:"ksi")
+    @user2 = create(:user)
+    @user3 = create(:user)
+    @student = create(:student, user: @user2, classroom: @classroom)
     sign_in(@user)
   end
 
