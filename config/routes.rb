@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :courses
   resources :students
   get 'homepage/index'
   resources :subjects
