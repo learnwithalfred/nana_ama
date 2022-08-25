@@ -1,27 +1,45 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Subjects</h1>
+ <div class="mt-5 flex flex-col">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="bg-gray-50">
+      <div class="max-w-9xl mx-auto py-4 px-4 sm:px-6 lg:py-4 lg:px-4 lg:flex lg:items-center lg:justify-between">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">
+          <span class="block">Subjects List.</span>
+        </h2>
+        <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+          <div class="ml-3 inline-flex rounded-md shadow">
+            <%= link_to "Add subjects", new_subject_path, class:"inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" %>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <tbody>
-    <% @subjects.each do |subject| %>
-      <tr>
-        <td><%= subject.name %></td>
-        <td><%= link_to 'Show', subject %></td>
-        <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
-        <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Subject', new_subject_path %>
+    <div class="my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <div class="border-b shadow md:custom-box-shadow overflow-hidden border-gray-200">
+          <table class="divide-y min-w-full divide-gray-200">
+            <thead>
+              <tr>
+                <th class="w-1">#</th>
+                <th class="bg-gray-50 px-6 py-3 text-left text-lg font-bold leading-4 tracking-wider text-bb-gray-600 text-opacity-50">Name</th>
+                <th class="w-3"></th>
+                <th class="w-3"></th>
+                <th class="w-3"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
+                <% @subjects.each_with_index do |subject, index| %>
+                <tr>
+                  <td class="whitespace-no-wrap px-6 py-4 text-lg font-medium leading-5 text-bb-gray-600"><%= index + 1 %></td>
+                  <td class="whitespace-no-wrap px-6 py-4 text-lg font-medium leading-5 text-bb-gray-600"><%= subject.name %></td>
+                  <td class="px-6 text-left  py-4"><%= link_to 'Show', subject %></td>
+                  <td class="px-6 text-left py-4"><%= link_to 'Edit', edit_subject_path(subject) %></td>
+                  <td class="px-6 text-left py-4"><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
