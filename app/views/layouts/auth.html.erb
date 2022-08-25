@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nana Ama</title>
+    <title>Auth || Nana Ama</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,9 +11,9 @@
     <%= javascript_pack_tag 'application' %>
   </head>
   <body>
-         <div class="flash">
-                 <%= render 'shared/flash' %>
-               </div>
+    <div class="flash">
+      <%= render 'shared/flash' %>
+    </div>
     <%= yield %>
   </body>
 </html>
