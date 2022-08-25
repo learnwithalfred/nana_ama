@@ -1,39 +1,55 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Dob:</strong>
-  <%= @student.dob %>
-</p>
+<div
+  class=" flex  mt-4 justify-center px-4 py-12 sm:px-6 lg:px-2"
+>
+  <div class="w-full">
+   <div class="">
+      <div class=" mx-auto py-4 px-4 sm:px-6 lg:py-4 lg:px-4 lg:flex lg:items-center lg:justify-between">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">
+          <span class="block"><%= @student.user.name %> Details page</span>
+        </h2>
 
-<p>
-  <strong>Contact:</strong>
-  <%= @student.contact %>
-</p>
+      </div>
+    </div>
 
-<p>
-  <strong>Father:</strong>
-  <%= @student.father %>
-</p>
-
-<p>
-  <strong>Mother:</strong>
-  <%= @student.mother %>
-</p>
-
-<p>
-  <strong>About:</strong>
-  <%= @student.about %>
-</p>
-
-<p>
+<p class="font-bold text-lg mx-4 my-4 py-5" >
   <strong>User:</strong>
   <%= @student.user.name %>
 </p>
 
-<p>
+<p class="font-bold text-lg mx-4 my-4 py-5">
+  <strong>Dob:</strong>
+  <%= @student.dob %>
+</p>
+
+<p class="font-bold text-lg mx-4 my-4 py-5">
+  <strong>Contact:</strong>
+  <%= @student.contact %>
+</p>
+
+<p class="font-bold text-lg mx-4 my-4 py-5">
+  <strong>Father:</strong>
+  <%= @student.father %>
+</p>
+
+<p class="font-bold text-lg mx-4 my-4 py-5">
+  <strong>Mother:</strong>
+  <%= @student.mother %>
+</p>
+
+<p class="font-bold text-lg mx-4 my-4 py-5">
+  <strong>About:</strong>
+  <%= @student.about %>
+</p>
+
+
+
+<p class="font-bold text-lg mx-4 my-4 py-5">
   <strong>Classroom:</strong>
   <%= @student.classroom.name %>
 </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
+</div>
+</div>

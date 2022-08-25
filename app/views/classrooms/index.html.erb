@@ -22,7 +22,7 @@
                 <th class="w-1">#</th>
                 <th class="bg-gray-50 px-6 py-3 text-left text-lg font-bold leading-4 tracking-wider text-bb-gray-600 text-opacity-50">Name</th>
                 <th class="w-3"></th>
-                <th class="w-3"></th>
+             
                 <th class="w-3"></th>
               </tr>
             </thead>
@@ -32,7 +32,6 @@
                     <tr>
                   <td class="whitespace-no-wrap px-6 py-4 text-lg font-medium leading-5 text-bb-gray-600"><%= index + 1 %></td>
                   <td class="whitespace-no-wrap px-6 py-4 text-lg font-medium leading-5 text-bb-gray-600"><%= classroom.name %></td>
-                  <td class="px-6  py-4 text-left"><%= link_to 'Show', classroom %></td>
                   <td class="px-6  py-4 text-left"><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
                   <td class="px-6  py-4 text-left"><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
