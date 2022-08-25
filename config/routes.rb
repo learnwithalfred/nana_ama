@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :subjects
   resources :announcements
   resources :classrooms
+  
+  get "classrooms/:id/courses", to: "classrooms#classroom_course"
+  get "classrooms/:id/students", to: "classrooms#classroom_students"
 
   root 'homepage#index'
 

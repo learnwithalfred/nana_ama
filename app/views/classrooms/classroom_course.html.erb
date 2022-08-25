@@ -1,0 +1,44 @@
+
+
+      <div class="row">
+  <div class="col-lg-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div
+          class="d-sm-flex justify-content-center justify-content-sm-between"
+        >
+           <h1> <%=@classroom %> Courses </h1>
+
+        </div>
+        <p class="card-title"> Total Courses found: <%=@courses.count %></p>
+
+        <div class="table-responsive">
+          <table id="recent-purchases-listing" class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Time</th>
+                <th>Subject</th>
+                <th>More</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @courses.each_with_index do |course, index| %>
+              <tr>
+                <td><%= index +1 %> </td>
+                <td><%= course.course_date.to_formatted_s(:time) %></td>
+                <td><%= course.subject.name %></td>
+                <td>
+                  <%= link_to "More", course, class:"btn btn-link btn-fw" %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

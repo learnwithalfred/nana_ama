@@ -27,5 +27,12 @@
        <p class="alert"><%= alert %></p>   
        <% end %>
        <%= yield %>
+          <div class="template-demo">
+              <%= link_to :back, class:"btn btn-outline-danger btn-icon-text" do
+              %>
+              <i class="mdi mdi-arrow-left-bold btn-icon-prepend"></i>
+              Go Back <% end %>
+            </div>
+          </div>
   </body>
 </html>

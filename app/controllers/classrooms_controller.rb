@@ -1,5 +1,6 @@
 class ClassroomsController < ApplicationController
-  before_action :set_classroom, only: %i[ show edit update destroy ]
+  before_action :set_classroom, except: %i[ index new create]
+  before_action :require_classroom_permission, except: %i[ show classroom_course classroom_students]
 
   # GET /classrooms or /classrooms.json
   def index
@@ -57,6 +58,19 @@ class ClassroomsController < ApplicationController
     end
   end
 
+
+  def classroom_course
+    @courses = @classroom.courses
+    @classroom = @classroom.name
+  end
+
+  def classroom_students
+    @students = @classroom.students
+    @classroom = @classroom.name
+  end
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_classroom
@@ -67,4 +81,21 @@ class ClassroomsController < ApplicationController
     def classroom_params
       params.require(:classroom).permit(:name, :role)
     end
+
+    def require_classroom_permission
+      unless current_user.admin? ||
+             current_user.super_admin? ||
+             current_user.teacher? ||
+             current_user.role == "learner" && current_user.student.classroom.id != nil && current_user.student.classroom.id == params[:id]
+        flash[:danger] = "You do not have permission to attend this class"
+        if current_user.role == "learner" && current_user.student.classroom.id != nil
+          redirect_to "/classrooms/#{current_user.student.classroom.id}"
+        else
+          redirect_to edit_user_registration_path
+        end
+      end
+    end
+
+
+
 end
