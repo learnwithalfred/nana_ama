@@ -4,14 +4,15 @@
   class="bg-gray-50 flex min-h-screen items-center justify-center px-4 py-12 sm:px-6 lg:px-8"
 >
   <div class="w-full max-w-md">
-    <%= render "devise/shared/error_messages", resource: resource %>
-
+ 
     <h2
       class="mt-6 text-center text-3xl font-extrabold leading-9 text-gray-700"
     >
       Sign Up
     </h2>
-
+    <div class="flash">
+    <%= render "devise/shared/error_messages", resource: resource %>
+</div>
     <form class="mt-8">
       <div class="mt-6">
         <%= f.label "Full Name", class:"block text-sm font-medium leading-5
