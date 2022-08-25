@@ -1,2 +1,72 @@
-<h1>Homepage#index</h1>
-<p>Find me in app/views/homepage/index.html.erb</p>
+
+    <div
+      class="bg-gray-50 flex min-h-screen items-center justify-center px-4 py-12 sm:px-6 lg:px-8"
+    >
+      <div class="w-full max-w-md">
+        <h2
+          class="mt-6 text-center text-3xl font-extrabold leading-9 text-gray-700"
+        >
+          Sign Up
+        </h2>
+
+        <form class="mt-8">
+          <div class="mt-6">
+            <label class="block text-sm font-medium leading-5 text-bb-gray-700"
+              >Full Name</label
+            >
+            <div class="mt-1 rounded-md shadow-sm">
+              <input
+                type="text"
+                required="true"
+                class="transition border focus:outline-none focus:shadow-outline-blue block w-full appearance-none rounded-md border-gray-300 px-3 py-2 placeholder-gray-400 duration-150 ease-in-out focus:border-blue-300 sm:text-sm sm:leading-5"
+                placeholder="Full Name"
+              />
+            </div>
+          </div>
+          <div class="mt-6">
+            <label class="block text-sm font-medium leading-5 text-bb-gray-700">
+              Email</label
+            >
+            <div class="mt-1 rounded-md shadow-sm">
+              <input
+                type="email"
+                required="true"
+                class="transition border focus:outline-none focus:shadow-outline-blue block w-full appearance-none rounded-md border-gray-300 px-3 py-2 placeholder-gray-400 duration-150 ease-in-out focus:border-blue-300 sm:text-sm sm:leading-5"
+                placeholder="Email"
+              />
+            </div>
+          </div>
+          <div class="mt-6">
+            <label class="block text-sm font-medium leading-5 text-bb-gray-700">
+              Password</label
+            >
+            <div class="mt-1 rounded-md shadow-sm">
+              <input
+                type="password"
+                required="true"
+                class="transition border focus:outline-none focus:shadow-outline-blue block w-full appearance-none rounded-md border-gray-300 px-3 py-2 placeholder-gray-400 duration-150 ease-in-out focus:border-blue-300 sm:text-sm sm:leading-5"
+                placeholder="********"
+              />
+            </div>
+          </div>
+          <div class="mt-6">
+            <label class="block text-sm font-medium leading-5 text-bb-gray-700">
+              Password Confirmation</label
+            >
+            <div class="mt-1 rounded-md shadow-sm">
+              <input
+                type="password"
+                required="true"
+                class="transition border focus:outline-none focus:shadow-outline-blue block w-full appearance-none rounded-md border-gray-300 px-3 py-2 placeholder-gray-400 duration-150 ease-in-out focus:border-blue-300 sm:text-sm sm:leading-5"
+                placeholder="********"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="transition border bg-blue-500 hover:bg-blue-700 focus:outline-none group relative flex w-full justify-center rounded-md border-transparent px-4 py-2 my-4  text-sm font-medium leading-5 text-white duration-150 ease-in-out">
+            Register
+          </button>
+        </form>
+      </div>
+    </div>

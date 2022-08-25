@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
-
+  layout :set_layout
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def is_school_admin
@@ -26,6 +26,14 @@ class ApplicationController < ActionController::Base
         edit_user_registration_path
       else
         root_path
+      end
+    end
+
+    def set_layout
+      if current_user
+        "application"
+      else
+        "auth"
       end
     end
 
