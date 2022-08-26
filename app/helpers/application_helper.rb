@@ -37,7 +37,7 @@ module ApplicationHelper
 
   def is_school_staff
     if current_user
-      current_user.admin? || current_user.super_admin? || current_user.teacher?
+      current_user.admin? || current_user.super_admin? || current_user.teacher? || current_user.staff?
     end
   end
 end

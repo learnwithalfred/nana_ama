@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def is_school_admin
-    unless current_user.admin? || current_user.super_admin? || current_user.teacher?
+    unless current_user.admin? || current_user.super_admin? || current_user.teacher? || current_user.staff?
       flash[:danger] = "You do not have permission to perform this task"
-      redirect_to "/classrooms/#{current_user.student.classroom.id}"
+       redirect_to root_path
     end
   end
 
@@ -20,10 +20,8 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_in_path_for(resource)
-      if current_user.role == "student"
+      if current_user.role == "learner" && current_user.student.classroom.id != nil
         "/classrooms/#{current_user.student.classroom.id}"
-      elsif current_user.role == "user"
-        edit_user_registration_path
       else
         root_path
       end

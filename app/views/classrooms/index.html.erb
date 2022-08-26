@@ -6,11 +6,13 @@
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">
           <span class="block">Classrooms List.</span>
         </h2>
+        <% if is_school_staff %>
         <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
           <div class="ml-3 inline-flex rounded-md shadow">
             <%= link_to "Add new Classroom", new_classroom_path, class:"inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" %>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
 
@@ -23,9 +25,11 @@
                 <th class="w-1">#</th>
                 <th class="bg-gray-50 px-6 py-3 text-left text-lg font-bold leading-4 tracking-wider text-bb-gray-600 text-opacity-50">Name</th>
                 <th class="w-3"></th>
-             
+            <% if is_school_staff %>
                 <th class="w-3"></th>
+
                 <th class="w-3"></th>
+                <%end %>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 bg-white">
@@ -35,9 +39,11 @@
                   <td class="whitespace-no-wrap px-6 py-4 text-lg font-medium leading-5 text-bb-gray-600"><%= index + 1 %></td>
                   <td class="whitespace-no-wrap px-6 py-4 text-lg font-medium leading-5 text-bb-gray-600"><%= classroom.name %></td>
                   <td class="px-6  py-4 text-left"><%= link_to 'show', classroom %></td>
+                  <% if is_school_staff %>
                   <td class="px-6  py-4 text-left"><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
                   <td class="px-6  py-4 text-left"><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                    </tr>
+                <% end %>   
+                </tr>
                   <% end %>
              
             </tbody>
