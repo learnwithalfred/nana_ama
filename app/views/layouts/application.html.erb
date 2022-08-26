@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nana Ama</title>
+    <title>Dashboard || Nana Ama</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-<%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
-
   </head>
-
   <body>
-    <% if current_user %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
+       <%= render 'shared/navbar' %>
+        <div class="max-w-9xl mx-auto px-4 py-2 sm:px-6 lg:px-8" >
+        <div class="mx-auto max-w-9xl">
+        <div class="flash"><%= render 'shared/flash' %> </div>
+        <%= yield %>
+           <%= link_to :back, class:"py-4 my-4 focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" do %>
+                          <i class="bi px-3 bi-arrow-left-circle"></i>
 
-      <%= link_to "Login", new_user_session_path %>
-      <%= link_to "Sign up", new_user_registration_path %>
-    <% end %>
+                Return Back 
+<% end%>
 
-    <% if notice %>
-       <p class="notice"><%= notice %></p>
-       <% end %>
-       <% if alert %>
-       <p class="alert"><%= alert %></p>   
-       <% end %>
-       <%= yield %>
-  </body>
+          </div>
+        </div>
+        </div>
+      </div>
+    </body>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </html>

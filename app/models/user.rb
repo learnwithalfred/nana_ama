@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   before_save :to_lowercase
 
-  enum role: [:user, :learner, :stuff, :admin, :head_teacher, :teacher, :super_admin]
+  enum role: [:user, :learner, :staff, :admin, :head_teacher, :teacher, :super_admin]
   after_initialize :set_default_role, if: :new_record?
   def set_default_role # set default role to user  if not set
     self.role ||= :user

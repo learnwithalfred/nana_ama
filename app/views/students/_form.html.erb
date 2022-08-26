@@ -1,63 +1,69 @@
-<%= form_with(model: student) do |form| %>
-  <% if student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+<div class="flex  justify-center px-4 sm:px-6 lg:px-8">
+  <div class="w-full lg:max-w-[60%] md:max-w-[100%] ">
+    <%= form_with(model: student) do |form| %>
+        <% if student.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
-      <ul>
-        <% student.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+            <ul>
+              <% student.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :dob %>
-    <%= form.date_select :dob %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact %>
-    <%= form.text_field :contact %>
-  </div>
-
-  <div class="field">
-    <%= form.label :father %>
-    <%= form.text_field :father %>
-  </div>
-
-  <div class="field">
-    <%= form.label :mother %>
-    <%= form.text_field :mother %>
-  </div>
-
-  <div class="field">
-    <%= form.label :about %>
-    <%= form.text_area :about %>
-  </div>
-
-
-   <div>
-            <%= form.label :user_id%>
-            <div>
+        <form class="mt-8">
+          <div class="mt-6">
+            <%= form.label "Name",class:"block text-sm font-medium leading-5 text-bb-gray-700" %>
+            <div class="mt-1 rounded-md shadow-sm">
               <%=form.collection_select :user_id, User.where(role:
-              1).order(:created_at), :id, :name %>
+              1).order(:created_at), :id, :name, class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+            </div>
+          </div>
+          <div class="mt-6">
+            <%= form.label "Date of Birth", class:"block text-sm font-medium leading-5 text-bb-gray-700" %>
+            <div class="mt-1 rounded-md shadow-sm">
+              <%= form.date_select :dob,class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+            </div>
+          </div>
+          <div class="mt-6">
+            <%= form.label "Emergency Contact Number", class:"block text-sm font-medium leading-5 text-bb-gray-700" %>
+            <div class="mt-1 rounded-md shadow-sm">
+             <%= form.text_field :contact, class:"transition border focus:outline-none focus:shadow-outline-blue block w-full appearance-none rounded-md border-gray-300 px-3 py-2 placeholder-gray-400 duration-150 ease-in-out focus:border-blue-300 sm:text-sm sm:leading-5" %>
+            </div>
+          </div>
+          <div class="mt-6">
+            <%= form.label "Father's Name", class:"block text-sm font-medium leading-5 text-bb-gray-700" %>
+            <div class="mt-1 rounded-md shadow-sm">
+              <%= form.text_field :father, class:"transition border focus:outline-none focus:shadow-outline-blue block w-full appearance-none rounded-md border-gray-300 px-3 py-2 placeholder-gray-400 duration-150 ease-in-out focus:border-blue-300 sm:text-sm sm:leading-5" %>
+            </div>
+          </div>
+          <div class="mt-6">
+            <%= form.label "Mother's Name", class:"block text-sm font-medium leading-5 text-bb-gray-700" %>
+            <div class="mt-1 rounded-md shadow-sm">
+              <%= form.text_field :mother, class:"transition border focus:outline-none focus:shadow-outline-blue block w-full appearance-none rounded-md border-gray-300 px-3 py-2 placeholder-gray-400 duration-150 ease-in-out focus:border-blue-300 sm:text-sm sm:leading-5" %>
+            </div>
+          </div>
+          <div class="mt-6">
+            <%= form.label "About User", class:"block text-sm font-medium leading-5 text-bb-gray-700" %>
+            <div class="mt-1 rounded-md shadow-sm">
+              <%= form.text_area :about, class:"transition border focus:outline-none focus:shadow-outline-blue block w-full appearance-none rounded-md border-gray-300 px-3 py-2 placeholder-gray-400 duration-150 ease-in-out focus:border-blue-300 sm:text-sm sm:leading-5" %>
+            </div>
+          </div>
+         <div class="mt-6">
+            <%= form.label "Class Name",class:"block text-sm font-medium leading-5 text-bb-gray-700" %>
+            <div class="mt-1 rounded-md shadow-sm">
+              <%=form.collection_select :classroom_id, Classroom.order(:role), :id, :name, class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
             </div>
           </div>
 
-
-         <div>
-          <div >
-            <%= form.label "Class Name" %>
-            <div>
-              <%=form.collection_select :classroom_id, Classroom.order(:role),
-              :id, :name %>
+            <div class="mt-6">
+              <%= form.submit " Add Student", class: "transition border bg-blue-500
+                hover:bg-blue-700 focus:outline-none group relative flex w-full
+                justify-center rounded-md border-transparent px-4 py-2 my-4 text-sm
+                font-medium leading-5 text-white duration-150 ease-in-out" %>
             </div>
-          </div>
-        </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+        </form>
+        <% end %>
+      </div>
+    </div>

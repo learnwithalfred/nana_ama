@@ -1,13 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="flex  justify-center px-4 sm:px-6 lg:px-8">
+  <div class="w-full lg:max-w-[60%] md:max-w-[100%] ">
+<div
+  class=" flex  mt-4 justify-center px-4 py-12 sm:px-6 lg:px-2"
+>
+  <div class="w-full">
+   <div class="">
+      <div class=" mx-auto py-4 px-4 sm:px-6 lg:py-4 lg:px-4 lg:flex lg:items-center lg:justify-between">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">
+          <span class="block"><%= @announcement.title %> Details page</span>
+        </h2>
 
-
-<p>
+      </div>
+    </div>
+<p class="font-bold text-lg mx-4 my-4 py-5">
   <strong>Title:</strong>
   <%= @announcement.title %>
 </p>
 
 
-<p>Article Text:<strong><%= @announcement.content %></strong></p>
+<p class="font-bold text-lg mx-4 my-4 py-5">Article Text:<strong><%= @announcement.content %></strong></p>
 
-<%= link_to 'Edit', edit_announcement_path(@announcement) %> |
-<%= link_to 'Back', announcements_path %>
+  </div>
+  </div></div></div>

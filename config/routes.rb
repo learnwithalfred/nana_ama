@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'errors/not_found'
+  get 'errors/internal_server'
+  get 'errors/unprocessable'
+  get '/404', to: 'errors#not_found', via: :all
+  get '/500', to: 'errors#internal_server', via: :all
+  get '/422', to: 'errors#unprocessable', via: :all
+
   resources :comments, only: [:create, :new]
   resources :courses
   resources :students
@@ -7,6 +14,9 @@ Rails.application.routes.draw do
   resources :subjects
   resources :announcements
   resources :classrooms
+  
+  get "classrooms/:id/courses", to: "classrooms#classroom_course"
+  get "classrooms/:id/students", to: "classrooms#classroom_students"
 
   root 'homepage#index'
 
