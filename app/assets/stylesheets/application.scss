@@ -16,6 +16,12 @@
 
 //= require actiontext
 @import "./actiontext.scss";
+@import "bootstrap-icons/font/bootstrap-icons";
+@font-face {
+  font-family: "bootstrap-icons";
+  src: font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"),
+    font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff") format("woff");
+}
 
 $tooltip-margin: 10px;
 $tooltip-arrow-size: 6px;
