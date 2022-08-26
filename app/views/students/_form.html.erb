@@ -1,5 +1,5 @@
 <div class="flex min-h-screen justify-center px-4 sm:px-6 lg:px-8">
-  <div class="w-full max-w-md">
+  <div class="w-full max-w-[50%]">
     <%= form_with(model: student) do |form| %>
         <% if student.errors.any? %>
           <div id="error_explanation">
@@ -56,11 +56,13 @@
               <%=form.collection_select :classroom_id, Classroom.order(:role), :id, :name, class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
             </div>
           </div>
-          <button
-            type="submit"
-            class="transition border bg-blue-500 hover:bg-blue-700 focus:outline-none group relative flex w-full justify-center rounded-md border-transparent px-4 py-2 my-4  text-sm font-medium leading-5 text-white duration-150 ease-in-out">
-            Add Student
-          </button>
+
+            <div class="mt-6">
+              <%= form.submit " Add Student", class: "transition border bg-blue-500
+                hover:bg-blue-700 focus:outline-none group relative flex w-full
+                justify-center rounded-md border-transparent px-4 py-2 my-4 text-sm
+                font-medium leading-5 text-white duration-150 ease-in-out" %>
+            </div>
         </form>
         <% end %>
       </div>

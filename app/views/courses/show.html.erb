@@ -1,15 +1,15 @@
-
-<div className="mt-10 flex justify-between text-bb-gray-600">
-  <div class="w-full mx-4 my-4  rounded-lg border shadow-md dark:border-gray-700">
+<div class="flex min-h-screen justify-center px-4 sm:px-6 lg:px-8">
+  <div class="w-full max-w-[60%]">
+  <div class=" mx-4 my-4  rounded-lg border shadow-md dark:border-gray-700">
     <ul class="flex flex-wrap text-sm font-medium text-center text-gray-50 rounded-t-lg border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" id="defaultTab" data-tabs-toggle="#defaultTabContent" role="tablist">
         <li class="mr-2">
-            <span id="about-tab" data-tabs-target="#about" role="tab" aria-controls="about" aria-selected="true" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg "><%= @course.classroom.name %></span>
+            <span id="about-tab" data-tabs-target="#about" role="tab" aria-controls="about" aria-selected="true" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg ">Classroom: <%= @course.classroom.name %></span>
         </li>
         <li class="mr-2">
-            <span id="services-tab" data-tabs-target="#services" role="tab" aria-controls="services" aria-selected="false" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg "><%= @course.subject.name %></span>
+            <span id="services-tab" data-tabs-target="#services" role="tab" aria-controls="services" aria-selected="false" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg ">Subject: <%= @course.subject.name %></span>
         </li>
         <li class="mr-2">
-            <span id="statistics-tab" data-tabs-target="#statistics" role="tab" aria-controls="statistics" aria-selected="false" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg "><%= @course.course_date %></span>
+            <span id="statistics-tab" data-tabs-target="#statistics" role="tab" aria-controls="statistics" aria-selected="false" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg ">Event Date: <%= @course.course_date %></span>
         </li>
     </ul>
     <div id="defaultTabContent">
@@ -20,14 +20,14 @@
         </div>
     </div>
 </div>
- <h2 class="mx-3 my-4 text-3xl font-extrabold tracking-tight text-gray-900 "> Comments</h2>
+ <h2 class="mx-3 my-2 text-3xl font-extrabold tracking-tight text-gray-900 "> Comments</h2>
     <% @comments.each do |comment| %>
-    <div class="w-full mx-4 rounded-lg  px-2 py-2 my-2 ">
+    <div class="w-full mx-4 rounded-lg  px-2 my-2 ">
       <div class="flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
       </div>
-      <div class="border-b border-gray-400  bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+      <div class="p-4 flex flex-col justify-between leading-normal">
         <div class="mb-2">
-                      <h2 class="text-3xl font-lg tracking-tight text-gray-600 ">   <%= comment.content %></h2>
+          <h2 class="text-3xl font-lg tracking-tight text-gray-600 ">   <%= comment.content %></h2>
         </div>
         <div class="flex items-center">
           <div class="text-sm">
@@ -39,6 +39,6 @@
     </div>
       <% end %>
       <%= render "comments/form", comment: @comment%>
-</div>
+</div></div></div>
 
 
