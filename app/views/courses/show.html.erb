@@ -10,7 +10,7 @@
             <span id="services-tab" data-tabs-target="#services" role="tab" aria-controls="services" aria-selected="false" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg ">Subject: <%= @course.subject.name %></span>
         </li>
         <li class="mr-2">
-            <span id="statistics-tab" data-tabs-target="#statistics" role="tab" aria-controls="statistics" aria-selected="false" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg ">Event Date: <%= @course.course_date %></span>
+            <span id="statistics-tab" data-tabs-target="#statistics" role="tab" aria-controls="statistics" aria-selected="false" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg ">Event Date: <%= (@course.course_date) %></span>
         </li>
     </ul>
     <div id="defaultTabContent">
