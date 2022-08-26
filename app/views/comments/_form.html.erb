@@ -1,3 +1,4 @@
+ <div class="w-full max-w-md">
 <%= form_with(model: comment) do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
@@ -10,15 +11,22 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, required: true %>
-  </div>
+    <form class="mt-8">
+    <%= form.label "Add a comment", className: "block text-sm font-medium text-nitro-gray-800 sm:mt-px sm:pt-2" %>
   <%= form.hidden_field :course_id %>
-
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="mt-6">
+      <div class="mt-1 rounded-md shadow-sm">
+        <%= form.text_area :content, autofocus: true, required:"true",
+        autocomplete: "content", class:"p-2.5 transition border focus:outline-none
+        focus:shadow-outline-blue block w-full appearance-none rounded-md
+        border-gray-300 px-3 py-2 placeholder-gray-400 duration-150
+        ease-in-out focus:border-blue-300 sm:text-sm sm:leading-5"%>
+      </div>
+    </div>
+    <%=  form.submit "Post comment", class: "inline-flex py-4 my-4 items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800" %>
+    <% end %>
+    </form>
   </div>
-<% end %>
+
+
+  
