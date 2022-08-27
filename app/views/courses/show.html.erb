@@ -10,7 +10,7 @@
             <span id="services-tab" data-tabs-target="#services" role="tab" aria-controls="services" aria-selected="false" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg ">Subject: <%= @course.subject.name %></span>
         </li>
         <li class="mr-2">
-            <span id="statistics-tab" data-tabs-target="#statistics" role="tab" aria-controls="statistics" aria-selected="false" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg ">Event Date: <%= (@course.course_date) %></span>
+            <span id="statistics-tab" data-tabs-target="#statistics" role="tab" aria-controls="statistics" aria-selected="false" class="inline-block p-4 text-gray-900 rounded-tl-lg text-lg ">Event Date: <%= time_ago_in_words(@course.course_date) %></span>
         </li>
     </ul>
     <div id="defaultTabContent">
@@ -33,7 +33,7 @@
         <div class="flex items-center">
           <div class="text-sm">
             <p class="text-gray-900 leading-none"> <%= comment.user.name %></p>
-            <p class="text-gray-600"> <%= comment.created_at %></p>
+            <p class="text-gray-600"> <%= time_ago_in_words(comment.created_at) %></p>
           </div>
         </div>
       </div>

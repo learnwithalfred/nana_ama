@@ -1,5 +1,6 @@
 class ClassroomsController < ApplicationController
   before_action :set_classroom, except: %i[ index new create]
+  before_action :authenticate_user!
   before_action :require_classroom_permission, except: %i[ show classroom_course classroom_students]
   before_action :is_school_admin, only: %i[ new create update destroy]
 

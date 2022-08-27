@@ -3,6 +3,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :is_school_admin, except: %i[ index]
+  before_action :authenticate_user!
 
   def index
     @title = "Users"
