@@ -101,9 +101,23 @@ end
 
 end
 
+# test student
+ Student.create!(
+    [{
+      user_id:  2,
+      classroom_id: 1,
+      contact: Faker::PhoneNumber.cell_phone_in_e164,
+      father: Faker::Name.name,
+      mother: Faker::Name.name,
+      about: Faker::Lorem.paragraph(sentence_count: 2),
+      dob: Faker::Date.between(from: '2000-09-23', to: '2018-09-25')
+}])
+
+
+
 
 user_num = 22
-50.times do
+40.times do
   user_num = user_num + 1
   Student.create!(
     [{
@@ -116,16 +130,4 @@ user_num = 22
       dob: Faker::Date.between(from: '2000-09-23', to: '2018-09-25')
     }])
 end
-
-# test student
- Student.create!(
-    [{
-      user_id:  2,
-      classroom_id: 1,
-      contact: Faker::PhoneNumber.cell_phone_in_e164,
-      father: Faker::Name.name,
-      mother: Faker::Name.name,
-      about: Faker::Lorem.paragraph(sentence_count: 2),
-      dob: Faker::Date.between(from: '2000-09-23', to: '2018-09-25')
-}])
 
