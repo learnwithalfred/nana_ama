@@ -128,3 +128,4 @@ end
       about: Faker::Lorem.paragraph(sentence_count: 2),
       dob: Faker::Date.between(from: '2000-09-23', to: '2018-09-25')
 }])
+
